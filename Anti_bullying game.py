@@ -1,9 +1,9 @@
 import pygame
+import os
 FPS = 60
 HEIGHT = 600
 WIDTH = 1000
 WHITE = (255, 255, 255)
-BLACK = (0, 0, 0)
 
 #遊戲視窗
 pygame.init()
@@ -15,12 +15,12 @@ pygame.display.set_caption("反霸凌遊戲")
 Player_width = 50
 Player_height = 50
 Player_color = (176, 224, 230)
+Player_img = pygame.image.load(os.path.join("image", "被霸凌者.png")).convert_alpha()
 
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.Surface((Player_width, Player_height))
-        self.image.fill(Player_color)
+        self.image = pygame.transform.scale(Player_img, (Player_width, Player_height + 20))
         self.rect = self.image.get_rect()
         self.rect.center = (Player_width, HEIGHT / 2)
         self.speedx = 5
