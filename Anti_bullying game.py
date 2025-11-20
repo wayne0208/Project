@@ -80,4 +80,3 @@ while playgame:
 
 
 pygame.quit()
-print("hello world")
